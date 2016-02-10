@@ -12,7 +12,7 @@ public class Navigation_Hover extends TestCore {
 
 	FreeTrial freetrial;
 	Header header;
-
+/*
 	@BeforeClass
 	public void start_up() throws Exception {
 		log.debug(" WWW.HONEST.COM STARTING ( USER HOVERS OVER 5 SUB MENU ELEMENTS TESTS ) ");
@@ -24,6 +24,11 @@ public class Navigation_Hover extends TestCore {
 	@AfterClass
 	public void shut_down() {
 		closeBrowser();
+	}*/
+	
+	@BeforeClass
+	public void navigate_To_Homepage() {
+		driver.navigate().to(webpage);
 	}
 
 	@Test(description = "HOVER NAVIGATION TEST")

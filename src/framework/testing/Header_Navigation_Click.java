@@ -1,6 +1,5 @@
 package framework.testing;
 
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -13,7 +12,7 @@ public class Header_Navigation_Click extends TestCore {
 	Header header;
 	FreeTrial freetrial;
 
-	@BeforeClass
+/*	@BeforeClass
 	public void start_up() throws Exception {
 		log.debug(" WWW.HONEST.COM STARTING ( USER CLICKS 5 HEADER ELEMENTS NAVIGATION TESTS ) ");
 		startBrowser();
@@ -24,6 +23,11 @@ public class Header_Navigation_Click extends TestCore {
 	@AfterClass
 	public void shut_down() {
 		closeBrowser();
+	}*/
+	
+	@BeforeClass
+	public void navigate_To_Homepage() {
+		driver.navigate().to(webpage);
 	}
 
 	@Test(description = " Header Navigation Test ")

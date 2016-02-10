@@ -10,18 +10,12 @@ import framework.properties.Elements;
 
 public class Cleaning extends TestCore {
 
-	@FindBy(xpath = Elements.cleaning)
-	WebElement cleaning;
-	@FindBy(xpath = Elements.dishSoap)
-	WebElement dishSoap;
-	@FindBy(xpath = Elements.scentList)
-	WebElement scentList;
-	@FindBy(xpath = Elements.lemonVerbena)
-	WebElement lemonVerbena;
-	@FindBy(xpath = Elements.increase)
-	WebElement increase;
-	@FindBy(xpath = Elements.cleaning)
-	WebElement itemImage;
+	@FindBy(xpath = Elements.cleaning)	WebElement cleaning;
+	@FindBy(xpath = Elements.dishSoap)	WebElement dishSoap;
+	@FindBy(xpath = Elements.scentList)	WebElement scentList;
+	@FindBy(xpath = Elements.lemonVerbena)	WebElement lemonVerbena;
+	@FindBy(xpath = Elements.increase)	WebElement increase;
+	@FindBy(xpath = Elements.cleaning)	WebElement itemImage;
 
 	// MAIN CONSTRUCTOR
 	public Cleaning(WebDriver driver) {

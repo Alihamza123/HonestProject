@@ -16,7 +16,7 @@
 			<class name="framework.testing.Navigation_Hover" />
 		</classes>
 	</test>
-		<test name=" FOOTER NAVIGATION CLICK  ">
+	<test name=" FOOTER NAVIGATION CLICK  ">
 		<classes>
 			<class name="framework.testing.Footer_Navigation_Click" />
 		</classes>
@@ -41,9 +41,24 @@
 			<class name="framework.testing.Gifts_Navigation" />
 		</classes>
 	</test>
-		<test name=" FEEDING NAVIGATION ">
+	<test name=" FEEDING NAVIGATION ">
 		<classes>
 			<class name="framework.testing.Feeding_Navigation" />
+		</classes>
+	</test>
+	<test name=" PRESS IMAGE SELECT ">
+		<classes>
+			<class name="framework.testing.Press_Image_Select" />
+		</classes>
+	</test>
+	<test name=" PRINT LINKS ">
+		<classes>
+			<class name="framework.testing.PrintLinks" />
+		</classes>
+	</test>
+	<test name=" SIGN IN FUNNEL NAVIGATION ">
+		<classes>
+			<class name="framework.testing.SignIn_Funnel_Navigation" />
 		</classes>
 	</test>
 </suite> 

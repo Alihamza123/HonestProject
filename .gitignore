@@ -1,1 +1,6 @@
-build.xml
+*.log
+*.class
+*.xml
+*.jpg
+*.jar
+*.xsl

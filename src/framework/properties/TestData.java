@@ -3,7 +3,7 @@ package framework.properties;
 public class TestData {
 	
 	// BROWSER SELECTION
-	public static final String browserToTest = "firefox";
+	public static final String browserToTest = "chrome";
 	
 	// TEST WEBSIE 
 	public static final String homepage = "https://www.honest.com/";
@@ -14,19 +14,19 @@ public class TestData {
 	// JOINING / LOGGING IN FROM FREE TRIAL *TEST DATA*
 	public static final String firstNameTrial = "Oliver";
 	public static final String lastNameTrial = "Queen";
-	public static final String emailTrial = "trial208@gustr.com";
+	public static final String emailTrial = "freetrial300@gustr.com";
 	public static final String passwordTrial = "passwordTrial";
 	
 	// JOINING / LOGGING IN FROM ACCOUNT PAGE *TEST DATA*
 	public static final String firstNameAccount = "Bruce";
 	public static final String lastNameAccount = "Wayne";
-	public static final String emailAccount = "account203@gustr.com";
+	public static final String emailAccount = "newuser300@gustr.com";
 	public static final String passwordAccount = "passwordAccount";
 	
 	// SIGNING IN FUNNEL NAVIGATION 
 	public static final String fNameFunnel = "Ali Hamza";
 	public static final String lNameFunnel = "Ibrahim";
-	public static final String emailFunnel = "funnel201@gustr.com";
+	public static final String emailFunnel = "funneluser300@gustr.com";
 	public static final String passwordFunnel = "passwordFunnel";
 	
 	// FUNNEL NAVIGATION CHECK OUT SHIPPING FORM DATA
