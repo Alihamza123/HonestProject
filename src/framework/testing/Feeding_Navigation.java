@@ -1,36 +1,41 @@
 package framework.testing;
 
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
 
 import framework.config.TestCore;
 import framework.pages.Feeding;
-import framework.pages.FreeTrial;
+import framework.pages.Feeding101;
+import framework.pages.Homepage;
 
 public class Feeding_Navigation extends TestCore {
 
-	Feeding feeding;
-	FreeTrial freetrial;
-
-	@BeforeClass
-	public void start_up() throws Exception {
-		log.debug(" WWW.HONEST.COM STARTING ( FEEDING NAVIGATION TEST ) ");
-		startBrowser();
-		freetrial = new FreeTrial(driver);
-		freetrial.close_freeTrialAlert();
-	}
-
-	@AfterClass
-	public void shut_down() {
-		closeBrowser();
-	}
+	/*
+	 * USE CASE 10 :
+	 * Reference to : TESTCASE10 Feeding Navigation
+	 * -------------------------
+	 * 
+	 * User clicks on Feeding from Header
+	 * User waits for OUR COMMITMENT image to load
+	 * Clicks on OUR COMMITMENT image
+	 * Verify at the bottom of the page the CONTAINER image is present
+	 */
 
 	@Test(description = " FEEDING NAVIGATION TEST ")
-	public void user_clicks_ourCommitment() {
+	public void feedingNavigationTest() {
 		try {
-			feeding = new Feeding(driver);
-			feeding.feedingNavigationTest();
+			
+			Homepage home = PageFactory.initElements(driver, Homepage.class);
+			
+			// user clicks on Feeding from Header
+			Feeding feed = home.click_Header_Feeding();
+			
+			// user wait for our commitment image to load then clicks it 
+			Feeding101 commitPage = feed.click_OurCommitment();
+			
+			// verify image has loaded on page 
+			commitPage.verify_PageImage();
+			
 		} catch (Exception e) {
 			log.debug(" FEEDING NAVIGATION EXCEPTION : " + e);
 		}

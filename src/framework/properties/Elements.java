@@ -54,12 +54,12 @@ public class Elements {
 	// DISH SOAP ELEMENT
 	public static final String dishSoap = ".//*[@id='grid_product_25']//*[contains(@src, '10058/Product-25')]";
 	// INCREASE & DECREASE ELEMENTS
-	public static final String increase = ".//*[@id='js-container-main']/div[3]/div[2]/div[1]/div[3]/div[1]/div[3]/div[2]/div/div/a[2]/span";
+	public static final String increase = "//span[@class='icon-large icon icon-plus-sign hover-pointer']";
 	public static final String decrease = "//span[@class='icon-large icon icon-minus-sign hover-pointer']";
 	// SCENT DROPDOWN ELEMENT
-	public static final String scentList = "//select[@data-ng-model='selected[optionType.id]']";
+	public static final String scentList = "//select[@class='test-select-variant-selector form-control variant-text-select ng-pristine ng-valid']";
 	// LEMON VERBENA ITEM
-	public static final String lemonVerbena = "//option[contains(.,'Lemon Verbena')]";
+	//public static final String lemonVerbena = "//option[contains(.,'Lemon Verbena')]";
 	// DISH SOAP LEMON VERBENA IMAGE
 	public static final String itemImage = "//img[@src='https://img.honest.com/uploads/managed_assets/file/10050/OptionValue-255-slide_with_zoom-e66f6455-aca0-4377-ad13-8e7e70759d21_normal_slide.jpg']";
 

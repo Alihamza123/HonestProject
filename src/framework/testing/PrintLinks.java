@@ -1,32 +1,12 @@
 package framework.testing;
 
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
-
 import framework.config.TestCore;
-import framework.pages.FreeTrial;
-import framework.pages.Links;
 
 public class PrintLinks extends TestCore {
 
-	FreeTrial freetrial;
-	Links links;
 
-	@BeforeClass
-	public void start_up() throws Exception {
-		log.debug(" WWW.HONEST.COM STARTING ( LINKS TESTS ) ");
-		startBrowser();
-		freetrial = new FreeTrial(driver);
-		freetrial.close_freeTrialAlert();
-	}
 
-	@AfterClass
-	public void shut_down() {
-		closeBrowser();
-	}
-
-	@Test(description = "USER PRINTS ALL LINKS ON HOMEPAGE")
+/*	@Test(description = "USER PRINTS ALL LINKS ON HOMEPAGE")
 	public void print_AllTheLinks() {
 
 		try {
@@ -48,6 +28,6 @@ public class PrintLinks extends TestCore {
 			log.debug(e.getMessage());
 		}
 
-	}
+	}*/
 
 }

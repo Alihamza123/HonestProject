@@ -3,12 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="framework.testing.SignIn_Funnel_Navigation">
+      <class name="framework.testing.DummyTest">
         <methods>
-          <include name="dummy"/>
-          <include name="start_up"/>
+          <include name="dummyStart"/>
         </methods>
-      </class> <!-- framework.testing.SignIn_Funnel_Navigation -->
+      </class> <!-- framework.testing.DummyTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

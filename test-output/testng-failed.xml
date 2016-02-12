@@ -1,65 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [PROJECT HONEST.COM SET A ]">
-  <test name=" FEEDING NAVIGATION (failed)">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test name="Default test(failed)">
     <classes>
-      <class name="framework.testing.Press_Image_Select">
+      <class name="framework.testing.DummyTest">
         <methods>
-          <include name="start_up"/>
+          <include name="dummyStart"/>
         </methods>
-      </class> <!-- framework.testing.Press_Image_Select -->
-      <class name="framework.testing.PrintLinks">
-        <methods>
-          <include name="start_up"/>
-        </methods>
-      </class> <!-- framework.testing.PrintLinks -->
-      <class name="framework.testing.Feeding_Navigation">
-        <methods>
-          <include name="start_up"/>
-          <include name="user_clicks_ourCommitment"/>
-        </methods>
-      </class> <!-- framework.testing.Feeding_Navigation -->
+      </class> <!-- framework.testing.DummyTest -->
     </classes>
-  </test> <!--  FEEDING NAVIGATION (failed) -->
-  <test name=" PRESS IMAGE SELECT (failed)">
-    <classes>
-      <class name="framework.testing.Press_Image_Select">
-        <methods>
-          <include name="pressImageSelect"/>
-          <include name="start_up"/>
-        </methods>
-      </class> <!-- framework.testing.Press_Image_Select -->
-      <class name="framework.testing.PrintLinks">
-        <methods>
-          <include name="start_up"/>
-        </methods>
-      </class> <!-- framework.testing.PrintLinks -->
-      <class name="framework.testing.Feeding_Navigation">
-        <methods>
-          <include name="start_up"/>
-        </methods>
-      </class> <!-- framework.testing.Feeding_Navigation -->
-    </classes>
-  </test> <!--  PRESS IMAGE SELECT (failed) -->
-  <test name=" PRINT LINKS (failed)">
-    <classes>
-      <class name="framework.testing.Press_Image_Select">
-        <methods>
-          <include name="start_up"/>
-        </methods>
-      </class> <!-- framework.testing.Press_Image_Select -->
-      <class name="framework.testing.PrintLinks">
-        <methods>
-          <include name="print_AllTheLinks"/>
-          <include name="print_SpecificLink"/>
-          <include name="start_up"/>
-        </methods>
-      </class> <!-- framework.testing.PrintLinks -->
-      <class name="framework.testing.Feeding_Navigation">
-        <methods>
-          <include name="start_up"/>
-        </methods>
-      </class> <!-- framework.testing.Feeding_Navigation -->
-    </classes>
-  </test> <!--  PRINT LINKS (failed) -->
-</suite> <!-- Failed suite [PROJECT HONEST.COM SET A ] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

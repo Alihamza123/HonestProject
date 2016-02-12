@@ -4,13 +4,13 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import framework.config.TestCore;
-import framework.pages.FreeTrial;
+import framework.pages.Homepage;
 import framework.pages.Header;
 
 public class Header_Navigation_Click extends TestCore {
 
 	Header header;
-	FreeTrial freetrial;
+	Homepage freetrial;
 
 /*	@BeforeClass
 	public void start_up() throws Exception {

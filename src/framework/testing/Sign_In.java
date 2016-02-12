@@ -8,30 +8,15 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import framework.config.TestCore;
-import framework.pages.Account;
-import framework.pages.FreeTrial;
+import framework.pages.MyAccountPage;
 import framework.pages.Homepage;
+import framework.pages.LandingPage;
 
 public class Sign_In extends TestCore {
 
-	Account account;
-	Homepage homepage;
-	FreeTrial freetrial;
 
-	@BeforeClass
-	public void start_up() throws Exception {
-		log.debug(" WWW.HONEST.COM STARTING ( VALID LOG IN TESTS ) ");
-		startBrowser();
-		freetrial = new FreeTrial(driver);
-		freetrial.close_freeTrialAlert();
-	}
 
-	@AfterClass
-	public void shut_down() {
-		closeBrowser();
-	}
-
-	@AfterMethod
+	/*@AfterMethod
 	public void user_SignsOutOfAccount() throws Exception {
 
 		try {
@@ -44,10 +29,10 @@ public class Sign_In extends TestCore {
 	}
 
 	@Test(description = " user logs in from account page", priority = 1)
-	public void user_LogsInFromMyAccount() {
+	public void signInToAccount() {
 
 		try {
-			account = new Account(driver);
+			account = new MyAccountPage(driver);
 			// USER SIGNS IN / LOGS IN FROM ACCOUNT PAGE
 			account.user_SignsIn_FromMyAccount();
 		} catch (Exception e) {
@@ -65,6 +50,6 @@ public class Sign_In extends TestCore {
 		} catch (Exception e) {
 			log.debug(" VALID LOG IN EXCEPTION : " + e);
 		}
-	}
+	}*/
 
 }

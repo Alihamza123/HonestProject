@@ -1,39 +1,43 @@
 package framework.testing;
 
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
 
 import framework.config.TestCore;
 import framework.pages.Cleaning;
-import framework.pages.FreeTrial;
+import framework.pages.Homepage;
 
 public class Cleaning_Navigation extends TestCore {
 
-	FreeTrial freetrial;
-	Cleaning cleaning;
-
-	@BeforeClass
-	public void start_up() throws Exception {
-		log.debug(" WWW.HONEST.COM STARTING ( CLEANING NAVIGATION TESTS ) ");
-		startBrowser();
-		freetrial = new FreeTrial(driver);
-		freetrial.close_freeTrialAlert();
-	}
-
-	@AfterClass
-	public void shut_down() {
-		closeBrowser();
-	}
-
+	/*
+	 * USE CASE 09 :
+	 * REFERENCE : TESTCASE09 Cleaning Navigation
+	 * ---------------------------------------------------
+	 * User clicks on Cleaning from Header
+	 * User selects Dish Soap
+	 * User selects from drop down Lemon Verbana
+	 * User increases Quantity to 5
+	 * Verify Image has changed
+	 *  
+	 */
+	
 	@Test(description = " Cleaning navigation test")
-	public void cleaning_Navigation() {
+	public void cleaning_Navigation() throws Exception {
+	
 		try {
-			cleaning = new Cleaning(driver);
-			cleaning.cleaningNavigationTest();
+			
+			Homepage home = PageFactory.initElements(driver, Homepage.class);
+	
+			// Click on Cleaning from Header
+			Cleaning clean = home.click_Header_Cleaning();
+			
+			// Call Cleaning Navigation Method
+			clean.cleaningNavigationTest();
+			
 		} catch (Exception e) {
-			log.debug("CLEANING NAVIGATION EXCEPTION : " + e);
-		}
+			System.out.println(e.getMessage());
+		}	
+		
 	}
 
 }
