@@ -23,12 +23,9 @@ public class LandingPage extends TestCore {
 
 		explicitWait(closeTrial, 20, driver);
 
-		// VERIFY IF FREE TRIAL ALERT OPENS . THE CLOSE BUTTON IS ENABLED
-		if (closeTrial.isEnabled()) {
-			closeTrial.click();
-		} else {
-			System.out.println(" Free Trial Alert NOT PRESENT ");
-		}
+		Assert.assertTrue(closeTrial.isEnabled());
+		
+		closeTrial.click();
 
 		return PageFactory.initElements(driver, Homepage.class);
 	}
@@ -48,14 +45,11 @@ public class LandingPage extends TestCore {
 		return PageFactory.initElements(driver, Homepage.class);
 	}
 
-
-
-
-	@CacheLookup @FindBy(xpath = Elements.closeTrialAlert) WebElement closeTrial;
-	@CacheLookup @FindBy(xpath = Elements.trialFirstName) WebElement trialFirstName;
-	@CacheLookup @FindBy(xpath = Elements.trialLastName)	WebElement trialLastName;
-	@CacheLookup @FindBy(xpath = Elements.trialEmail) WebElement trialEmail;
-	@CacheLookup @FindBy(xpath = Elements.trialPassword)	WebElement trialPassword;
-	@CacheLookup @FindBy(xpath = Elements.trialCreateButton)	WebElement trialCreateButton;
+	@CacheLookup @FindBy(xpath = Elements.closeTrialAlert)WebElement closeTrial;
+	@CacheLookup @FindBy(xpath = Elements.trialFirstName)WebElement trialFirstName;
+	@CacheLookup @FindBy(xpath = Elements.trialLastName)WebElement trialLastName;
+	@CacheLookup @FindBy(xpath = Elements.trialEmail)WebElement trialEmail;
+	@CacheLookup @FindBy(xpath = Elements.trialPassword)WebElement trialPassword;
+	@CacheLookup @FindBy(xpath = Elements.trialCreateButton)WebElement trialCreateButton;
 
 }

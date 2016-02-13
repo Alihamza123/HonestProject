@@ -4,12 +4,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
 
 import framework.config.TestCore;
-import framework.pages.Footer_Faq;
-import framework.pages.Footer_Feedback;
-import framework.pages.Footer_Testimonials;
-import framework.pages.Footer_WhatsInside;
-import framework.pages.Footer_WhoWeAre;
-import framework.pages.Homepage;
+import framework.pages.HomepageFooter;
 
 public class Footer_Navigation_Click extends TestCore {
 
@@ -19,25 +14,25 @@ public class Footer_Navigation_Click extends TestCore {
 
 		try {
 			
-			Homepage home = PageFactory.initElements(driver, Homepage.class);
+			HomepageFooter foot = PageFactory.initElements(driver, HomepageFooter.class);
 			
-			Footer_Faq faq = home.click_Footer_faq();
-			faq.footer_Faq();
+			// user clicks FAQ FOOTER
+			foot.click_Footer_faq();
 			
-			Footer_Feedback feedback = home.click_footer_feedBack();
-			feedback.footer_FeedBack();
+			// user clicks FEEDBACK FOOTER
+			foot.click_footer_feedBack();
 			
-			Footer_Testimonials testimonials = home.click_Footer_Testimonials();
-			testimonials.footer_Testimonials();
+			// user clicks HONEST TESTIMONIALS FOOTER
+			foot.click_Footer_Testimonials();
 			
-			Footer_WhatsInside whatsInside = home.click_Footer_WhatsInside();
-			whatsInside.footer_WhatsInside();
+			// user clicks WHATS INSIDE FOOTER
+			foot.click_Footer_WhatsInside();
 			
-			Footer_WhoWeAre whoWeAre = home.click_Footer_WhoWeAre();
-			whoWeAre.footer_WhoWeAre();
-			
+			// user clicks WHO WE ARE FOOTER
+			foot.click_Footer_WhoWeAre();
+
 		} catch (Exception e) {
-			log.debug("Footer Navigation Click Exception : " + e);
+			System.out.println(e.getMessage());
 		}
 	}
 }

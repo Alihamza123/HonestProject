@@ -19,11 +19,11 @@ public class Links extends TestCore {
 	public void print_AllLinks() {
 		List<WebElement> links = driver.findElements(By.tagName("a"));
 
-		log.debug(links.size());
+		System.out.println(links.size());
 
 		for (int i = 1; i <= links.size(); i++) {
-			log.debug(" Name of Link #" + i + links.get(i).getText());
-			log.debug(" URL of Link #" + i + links.get(i).getAttribute("href"));
+			System.out.println(" Name of Link #" + i + links.get(i).getText());
+			System.out.println(" URL of Link #" + i + links.get(i).getAttribute("href"));
 		}
 	}
 	
@@ -32,6 +32,6 @@ public class Links extends TestCore {
 		List<WebElement> links = driver.findElements(By.tagName("a"));
 
 		String specificLink = links.get(LinkNumber).getAttribute("href");
-		log.debug(" THE LINK NUMBER [ " + LinkNumber + " ] : " + specificLink);
+		System.out.println(" THE LINK NUMBER [ " + LinkNumber + " ] : " + specificLink);
 	}
 }

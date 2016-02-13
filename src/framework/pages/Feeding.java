@@ -1,10 +1,6 @@
 package framework.pages;
 
-import java.io.File;
-
-import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
@@ -28,11 +24,8 @@ public class Feeding extends TestCore {
 		explicitWait(ourCommitment, 20, driver);
 		
 		// capture screenshot of Our Commitment image once it shows
-		if (ourCommitment.isDisplayed()) {
-			File Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-			FileUtils.copyFile(Screenshot, new File(
-					"C:\\Users\\Ali Hamza\\Desktop\\EclipseWorkspace\\Project Honest.com\\src\\libraries\\screenshots\\OurCommitment.jpg"));
-		}
+		Assert.assertTrue(ourCommitment.isDisplayed());
+		TestCore.captureScreenshot(driver, "OurCommitment");
 		
 		// click on our commitment image
 		ourCommitment.click();

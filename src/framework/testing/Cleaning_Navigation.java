@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 import framework.config.TestCore;
 import framework.pages.Cleaning;
-import framework.pages.Homepage;
+import framework.pages.HomepageHeader;
 
 public class Cleaning_Navigation extends TestCore {
 
@@ -26,13 +26,23 @@ public class Cleaning_Navigation extends TestCore {
 	
 		try {
 			
-			Homepage home = PageFactory.initElements(driver, Homepage.class);
+			HomepageHeader home = PageFactory.initElements(driver, HomepageHeader.class);
 	
 			// Click on Cleaning from Header
 			Cleaning clean = home.click_Header_Cleaning();
 			
-			// Call Cleaning Navigation Method
-			clean.cleaningNavigationTest();
+			// User Selects Dish Soap
+			clean.selectDishSoap();
+			
+			// User Selects Lemon Verbana
+			clean.selectLemonVerbena();
+			
+			// User Increases Quantity to 5
+			clean.increaseQuantity();
+			
+			// Verify Page Image
+			clean.verifyImage();
+			
 			
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

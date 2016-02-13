@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import framework.config.TestCore;
 import framework.pages.Feeding;
 import framework.pages.Feeding101;
-import framework.pages.Homepage;
+import framework.pages.HomepageHeader;
 
 public class Feeding_Navigation extends TestCore {
 
@@ -25,7 +25,7 @@ public class Feeding_Navigation extends TestCore {
 	public void feedingNavigationTest() {
 		try {
 			
-			Homepage home = PageFactory.initElements(driver, Homepage.class);
+			HomepageHeader home = PageFactory.initElements(driver, HomepageHeader.class);
 			
 			// user clicks on Feeding from Header
 			Feeding feed = home.click_Header_Feeding();
@@ -37,7 +37,7 @@ public class Feeding_Navigation extends TestCore {
 			commitPage.verify_PageImage();
 			
 		} catch (Exception e) {
-			log.debug(" FEEDING NAVIGATION EXCEPTION : " + e);
+			System.out.println(e.getMessage());
 		}
 	}
 

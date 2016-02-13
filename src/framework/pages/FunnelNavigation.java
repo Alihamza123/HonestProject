@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
@@ -20,96 +21,26 @@ public class FunnelNavigation extends TestCore {
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(xpath = Elements.closeTrialAlert)
-	WebElement closeTrial;
-	@FindBy(xpath = Elements.trialFirstName)
-	WebElement trialFirstName;
-	@FindBy(xpath = Elements.trialLastName)
-	WebElement trialLastName;
-	@FindBy(xpath = Elements.trialEmail)
-	WebElement trialEmail;
-	@FindBy(xpath = Elements.trialPassword)
-	WebElement trialPassword;
-	@FindBy(xpath = Elements.trialCreateButton)
-	WebElement trialCreateButton;
-	@FindBy(xpath = Elements.cleaning)
-	WebElement cleaning;
-	@FindBy(xpath = Elements.stainRemover)
-	WebElement stainRemover;
-	@FindBy(xpath = Elements.dropDownMenu)
-	WebElement dropDownMenu;
-	@FindBy(xpath = Elements.concentrateBottle)
-	WebElement concentrateBottle;
-	@FindBy(xpath = Elements.increaseQty)
-	WebElement increaseQty;
-	@FindBy(xpath = Elements.buyNowFunnel)
-	WebElement buyNowFunnel;
-	@FindBy(xpath = Elements.checkOutDropDown)
-	WebElement checkOutDropDown;
-	@FindBy(xpath = Elements.shipFirstName)
-	WebElement shipFirstName;
-	@FindBy(xpath = Elements.shipLastName)
-	WebElement shipLastName;
-	@FindBy(xpath = Elements.shipStreet)
-	WebElement shipStreet;
-	@FindBy(xpath = Elements.countryDrpDown)
-	WebElement countryDrpDown;
-	@FindBy(xpath = Elements.shipCity)
-	WebElement shipCity;
-	@FindBy(xpath = Elements.stateDrpDown)
-	WebElement stateDrpDown;
-	@FindBy(xpath = Elements.shipZipCode)
-	WebElement shipZipCode;
-	@FindBy(xpath = Elements.shipPhoneNumber)
-	WebElement shipPhoneNumber;
-	@FindBy(xpath = Elements.saveAndContinueBtn)
-	WebElement saveAndContinueBtn;
-	@FindBy(xpath = Elements.proceedCheckOut)
-	WebElement proceedCheckout;
-
-	public FunnelNavigation funnelNavigation_Test() throws Exception {
-		
-		// calling user joins free trial method 
-		user_JoinsFreeTrial();
-
-		// calling user selects item method
-		user_Selects_Item();
-
-		// calling user customizes item method
-		user_Customizes_Item();
-
-		// calling user checksout method
-		user_ChecksOut();
-
-		// calling user enters shipping information
-		user_EntersInformation();
-
-		return new FunnelNavigation(driver);
-	}
 
 	// METHOD FOR JOINING FREE TRIAL FROM HOMEPAGE ALERT
 	public FunnelNavigation user_JoinsFreeTrial() throws Exception {
 
 		try {
+			
 			explicitWait(trialFirstName, 20, driver);
 
 			trialFirstName.sendKeys(TestData.fNameFunnel);
-			log.debug(" First name = " + TestData.fNameFunnel);
 
 			trialLastName.sendKeys(TestData.lNameFunnel);
-			log.debug(" Last name = " + TestData.lNameFunnel);
 
 			trialEmail.sendKeys(TestData.emailFunnel);
-			log.debug(" Email = " + TestData.emailFunnel);
 
 			trialPassword.sendKeys(TestData.passwordFunnel);
-			log.debug(" Password = " + TestData.passwordFunnel);
 
 			trialCreateButton.click();
-			log.debug(" CREATE TRIAL ACCOUNT BUTTON [ CLICKED ]  ");
 
 		} catch (Exception e) {
-			log.debug(e.getMessage());
+			System.out.println(e.getMessage());
 		}
 
 		return this;
@@ -128,10 +59,9 @@ public class FunnelNavigation extends TestCore {
 			// user selects stain remover from sub menu
 			explicitWait(stainRemover, 15, driver);
 			stainRemover.click();
-			log.debug("STAIN REMOVER FROM SUB MENU [ CLICKED ] ");
 
 		} catch (Exception e) {
-			log.debug(e.getMessage());
+			System.out.println(e.getMessage());
 		}
 
 		return this;
@@ -153,15 +83,13 @@ public class FunnelNavigation extends TestCore {
 				increaseQty.click();
 				count++;
 			}
-			log.debug("Increased Qty By : " + count);
 
 			// user clicks the Buy Now Button
 			explicitWait(buyNowFunnel, 15, driver);
 			buyNowFunnel.click();
-			log.debug(" BUY NOW BUTTON [ CLICKED ] ");
 
 		} catch (Exception e) {
-			log.debug(e.getMessage());
+			System.out.println(e.getMessage());
 		}
 
 		return this;
@@ -174,8 +102,6 @@ public class FunnelNavigation extends TestCore {
 			// user waits for check out box to drop down from cart
 			explicitWait(checkOutDropDown, 10, driver);
 			checkOutDropDown.click();
-			log.debug(" CHECK OUT DROP DOWN BUTTON [ CLICKED ] ");
-
 			// verify item name and price
 
 			String expectedItemName = "Stain Remover";
@@ -186,18 +112,17 @@ public class FunnelNavigation extends TestCore {
 
 			if (actualItemName.contains(expectedItemName)) {
 				if (actualItemPrice.contains(expectedItemPrice))
-					log.debug(" ITEM NAME / PRICE VERIFICATION [ PASSED ] ");
+					System.out.println(" ITEM NAME / PRICE VERIFICATION [ PASSED ] ");
 			} else {
-				log.debug(" ITEM NAME / PRICE VERIFICATION [ FAILED ] ");
+				System.out.println(" ITEM NAME / PRICE VERIFICATION [ FAILED ] ");
 			}
 
 			// user clicks proceed to checkout
 			explicitWait(proceedCheckout, 15, driver);
 			proceedCheckout.click();
-			log.debug(" PROCEED TO CHECKOUT BUTTON [ CLICKED ] ");
 
 		} catch (Exception e) {
-			log.debug(e.getMessage());
+			System.out.println(e.getMessage());
 		}
 
 		return this;
@@ -210,41 +135,56 @@ public class FunnelNavigation extends TestCore {
 			explicitWait(shipFirstName, 10, driver);
 
 			// user fills out the check out form
-			shipFirstName.sendKeys(TestData.fNameShipping);
-			log.debug("Entered First name : " + TestData.fNameShipping);
+			shipFirstName.sendKeys(TestData.fNameShipping); 
 
-			shipLastName.sendKeys(TestData.lNameShipping);
-			log.debug("Entered Last name : " + TestData.lNameShipping);
+			shipLastName.sendKeys(TestData.lNameShipping); 
 
-			shipStreet.sendKeys(TestData.streetShipping);
-			log.debug("Entered Street address : " + TestData.streetShipping);
+			shipStreet.sendKeys(TestData.streetShipping); 
 
 			Select country = new Select(countryDrpDown);
-			country.selectByVisibleText(Elements.country);
-			log.debug("Selected country name : " + Elements.country);
+			country.selectByVisibleText(Elements.country); 
 
-			shipCity.sendKeys(TestData.cityShipping);
-			log.debug("Entered City name : " + TestData.cityShipping);
+			shipCity.sendKeys(TestData.cityShipping); 
 
 			Select state = new Select(stateDrpDown);
-			state.selectByVisibleText(Elements.state);
-			log.debug("Selected State name : " + Elements.state);
+			state.selectByVisibleText(Elements.state); 
 
-			shipZipCode.sendKeys(TestData.zipShipping);
-			log.debug("Entered Zip Code : " + TestData.zipShipping);
+			shipZipCode.sendKeys(TestData.zipShipping); 
 
-			shipPhoneNumber.sendKeys(TestData.phoneShipping);
-			log.debug("Entered Phone number : " + TestData.phoneShipping);
+			shipPhoneNumber.sendKeys(TestData.phoneShipping); 
 
 			// user clicks save and continue button
 			explicitWait(saveAndContinueBtn, 15, driver);
-			saveAndContinueBtn.click();
-			log.debug("Save and Continue Button [ CLICKED ] ");
+			saveAndContinueBtn.click(); 
 
 		} catch (Exception e) {
-			log.debug(e.getMessage());
+			System.out.println(e.getMessage());
 		}
 
 		return this;
 	}
+	
+	@CacheLookup@FindBy(xpath = Elements.closeTrialAlert)WebElement closeTrial;
+	@CacheLookup@FindBy(xpath = Elements.trialFirstName)WebElement trialFirstName;
+	@CacheLookup@FindBy(xpath = Elements.trialLastName)WebElement trialLastName;
+	@CacheLookup@FindBy(xpath = Elements.trialEmail)WebElement trialEmail;
+	@CacheLookup@FindBy(xpath = Elements.trialPassword)WebElement trialPassword;
+	@CacheLookup@FindBy(xpath = Elements.trialCreateButton)WebElement trialCreateButton;
+	@CacheLookup@FindBy(xpath = Elements.cleaning)WebElement cleaning;
+	@CacheLookup@FindBy(xpath = Elements.stainRemover)WebElement stainRemover;
+	@CacheLookup@FindBy(xpath = Elements.dropDownMenu)WebElement dropDownMenu;
+	@CacheLookup@FindBy(xpath = Elements.concentrateBottle)WebElement concentrateBottle;
+	@CacheLookup@FindBy(xpath = Elements.increaseQty)WebElement increaseQty;
+	@CacheLookup@FindBy(xpath = Elements.buyNowFunnel)WebElement buyNowFunnel;
+	@CacheLookup@FindBy(xpath = Elements.checkOutDropDown)WebElement checkOutDropDown;
+	@CacheLookup@FindBy(xpath = Elements.shipFirstName)WebElement shipFirstName;
+	@CacheLookup@FindBy(xpath = Elements.shipLastName)WebElement shipLastName;
+	@CacheLookup@FindBy(xpath = Elements.shipStreet)WebElement shipStreet;
+	@CacheLookup@FindBy(xpath = Elements.countryDrpDown)WebElement countryDrpDown;
+	@CacheLookup@FindBy(xpath = Elements.shipCity)WebElement shipCity;
+	@CacheLookup@FindBy(xpath = Elements.stateDrpDown)WebElement stateDrpDown;
+	@CacheLookup@FindBy(xpath = Elements.shipZipCode)WebElement shipZipCode;
+	@CacheLookup@FindBy(xpath = Elements.shipPhoneNumber)WebElement shipPhoneNumber;
+	@CacheLookup@FindBy(xpath = Elements.saveAndContinueBtn)WebElement saveAndContinueBtn;
+	@CacheLookup@FindBy(xpath = Elements.proceedCheckOut)WebElement proceedCheckout;
 }

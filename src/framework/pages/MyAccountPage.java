@@ -21,11 +21,11 @@ public class MyAccountPage extends TestCore {
 	}
 
 	// Verify Page Title For Account Page
-	public void verifyPageTitle() {
+	public void verify_MyAccount_Text() {
 		
-			String expectedText = "My Account";
-			String actualText = driver.findElement(By.xpath("//a[@class='gray']")).getText();
-			Assert.assertEquals(actualText, expectedText);
+		String expectedText = "My Account";
+		String actualText = driver.findElement(By.xpath("//a[@class='gray']")).getText();
+		Assert.assertEquals(actualText, expectedText);
 			
 	}
 	

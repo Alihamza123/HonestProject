@@ -1,25 +1,31 @@
 package framework.testing;
 
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
 
 import framework.config.TestCore;
-import framework.pages.Homepage;
 import framework.pages.Gifts;
+import framework.pages.HomepageHeader;
 
 public class Gifts_Navigation extends TestCore {
 
-/*
 	@Test(description = "GIFTS NAVIGATION TEST")
-	public void user_Clicks_GiftCards() throws Exception {
+	public void giftCard_Test() throws Exception {
 
 		try {
-			gifts = new Gifts(driver);
-			// USER PERFORMS GIFTS NAVIGATION TEST
-			gifts.gifts_Navigation_Test();
+
+			HomepageHeader home = PageFactory.initElements(driver, HomepageHeader.class);
+
+			Gifts gift = home.click_Header_Gifts();
+
+			gift.click_GiftCardImage();
+
+			gift.user_Enters_InvalidAmount("789");
+
+			TestCore.captureScreenshot(driver, "TextPopUp");
+
 		} catch (Exception e) {
-			log.debug("GIFTS NAVIGATION TEST EXCEPTION : " + e);
+			System.out.println(e.getMessage());
 		}
-	}*/
+	}
 }

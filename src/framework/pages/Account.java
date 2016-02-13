@@ -17,25 +17,23 @@ public class Account extends TestCore {
 		TestCore.driver = driver;
 	}
 
-	public void enters_NewUserData() throws Exception {
+	public MyAccountPage user_Inputs_NewUserData() throws Exception {
 
 		// user inputs valid data
 		newFirstName.sendKeys(TestData.firstNameAccount);
 		newLastName.sendKeys(TestData.lastNameAccount);
 		newEmail.sendKeys(TestData.emailAccount);
 		newPassword.sendKeys(TestData.passwordAccount);
-
-	}
-
-	public MyAccountPage clickNewAccountButton() {
-
-		// user clicks New Account Button
+		
+		// user clicks register account button
 		newAccountButton.click();
-
+		
 		return PageFactory.initElements(driver, MyAccountPage.class);
+
 	}
 
-	public void enters_RegisteredData() throws Exception {
+
+	public MyAccountPage enters_RegisteredData() throws Exception {
 
 		// wait for email input field to be visible
 		explicitWait(oldEmail, 20, driver);
@@ -43,46 +41,27 @@ public class Account extends TestCore {
 		// user inputs valid data
 		oldEmail.sendKeys(TestData.emailAccount);
 		oldPassword.sendKeys(TestData.passwordAccount);
-
-	}
-
-	public MyAccountPage clickSignInButton() {
-
+		
 		// user clicks Sign In Button
 		oldSignInButton.click();
 
 		return PageFactory.initElements(driver, MyAccountPage.class);
+
 	}
 
 	public void verify_AccountPageTitle() {
 
 		String expectedTitle = "Log-in to The Honest Company";
-		Assert.assertEquals(driver.getTitle(), expectedTitle);
+		Assert.assertTrue(driver.getTitle().contains(expectedTitle));
 
 	}
 
-	@CacheLookup
-	@FindBy(xpath = Elements.oldEmail)
-	WebElement oldEmail;
-	@CacheLookup
-	@FindBy(xpath = Elements.oldPassword)
-	WebElement oldPassword;
-	@CacheLookup
-	@FindBy(xpath = Elements.oldSignInButton)
-	WebElement oldSignInButton;
-	@CacheLookup
-	@FindBy(xpath = Elements.newFirstName)
-	WebElement newFirstName;
-	@CacheLookup
-	@FindBy(xpath = Elements.newLastName)
-	WebElement newLastName;
-	@CacheLookup
-	@FindBy(xpath = Elements.newEmail)
-	WebElement newEmail;
-	@CacheLookup
-	@FindBy(xpath = Elements.newPassword)
-	WebElement newPassword;
-	@CacheLookup
-	@FindBy(xpath = Elements.newAccountButton)
-	WebElement newAccountButton;
+	@CacheLookup@FindBy(xpath = Elements.oldEmail)WebElement oldEmail;
+	@CacheLookup@FindBy(xpath = Elements.oldPassword)WebElement oldPassword;
+	@CacheLookup@FindBy(xpath = Elements.oldSignInButton)WebElement oldSignInButton;
+	@CacheLookup@FindBy(xpath = Elements.newFirstName)WebElement newFirstName;
+	@CacheLookup@FindBy(xpath = Elements.newLastName)WebElement newLastName;
+	@CacheLookup@FindBy(xpath = Elements.newEmail)WebElement newEmail;
+	@CacheLookup@FindBy(xpath = Elements.newPassword)WebElement newPassword;
+	@CacheLookup@FindBy(xpath = Elements.newAccountButton)WebElement newAccountButton;
 }

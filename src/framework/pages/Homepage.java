@@ -22,104 +22,35 @@ public class Homepage extends TestCore {
 	public void verifyHomePageTitle() {
 
 		String expectedTitle = "Diapers, Bath & Body Products, Non-Toxic Cleaners | The Honest Company";
-		Assert.assertEquals(driver.getTitle(), expectedTitle);
+		Assert.assertTrue(driver.getTitle().contains(expectedTitle));
+		
 	}
-
-	// METHOD FOR CLICKING FEEDBACK FROM FOOTER
-	public Footer_Feedback click_footer_feedBack() throws Exception, InterruptedException {
-
-		explicitWait(feedBack, 20, driver);
-
-		// USER CLICKS ( FEED BACK ) ON FOOTER
-		feedBack.click();
-
-		return PageFactory.initElements(driver, Footer_Feedback.class);
+	
+	// METHOD FOR TYPING INSIDE THE SEARCH BOX FROM HOMEPAGE
+	public void user_Types_SearchBox() throws Exception{
+	
+		// wait for searchbox to be visible
+		explicitWait(searchBox, 20, driver);
+		
+		// USER SEARCHES FOR INPUT
+		searchBox.sendKeys(TestData.searchData);
+		searchBox.clear();
+		searchBox.click();
+		searchBox.sendKeys(TestData.searchData);
+			
 	}
-
-	// METHOD FOR CLICKING FAQ FROM FOOTER
-	public Footer_Faq click_Footer_faq() throws Exception, InterruptedException {
-
-		explicitWait(faq, 20, driver);
-
-		// USER CLICKS (FAQ) ON FOOTER
-		faq.click();
-
-		return PageFactory.initElements(driver, Footer_Faq.class);
-	}
-
-	// METHOD FOR CLICKING WHO WE ARE FROM FOOTER
-	public Footer_WhoWeAre click_Footer_WhoWeAre() throws Exception {
-
-		explicitWait(whoWeAre, 20, driver);
-
-		// USER CLICKS ( WHO WE ARE ) ON FOOTER
-		whoWeAre.click();
-
-		return PageFactory.initElements(driver, Footer_WhoWeAre.class);
-	}
-
-	// METHOD FOR CLICKING HONEST TESTIMONIALS FROM FOOTER
-	public Footer_Testimonials click_Footer_Testimonials() throws Exception {
-
-		explicitWait(testimonials, 20, driver);
-
-		// USER CLICKS ( HEALTH AND SUSTAINABILITY ) ON FOOTER
-		testimonials.click();
-
-		return PageFactory.initElements(driver, Footer_Testimonials.class);
-	}
-
-	// METHOD FOR CLICKING ON WHATS INSIDE FROM FOOTER
-	public Footer_WhatsInside click_Footer_WhatsInside() throws Exception {
-
-		explicitWait(whatsInside, 20, driver);
-
-		// USER CLICKS FOOTER ( WHATS INSIDE )
-		whatsInside.click();
-
-		return PageFactory.initElements(driver, Footer_WhatsInside.class);
-	}
-
-	// METHOD FOR CLICKING CLEANING FROM HEADER
-	public Cleaning click_Header_Cleaning() {
-
-		// click on cleaning from header
-		cleaning.click();
-
-		return PageFactory.initElements(driver, Cleaning.class);
-	}
-
-	// METHOD FOR CLICKING FEEDING FROM HEADER
-	public Feeding click_Header_Feeding() {
-
-		// click on feeding from header
-		feeding.click();
-
-		return PageFactory.initElements(driver, Feeding.class);
-	}
-
-	// METHOD FOR VALID LOG IN FROM MY ACCOUNT PAGE
-	public Account user_Clicks_MyAccountFooter() throws Exception {
-
-		// wait for My Account in Footer to be visible
-		explicitWait(footerMyAccount, 20, driver);
-
-		// user clicks My Account in Footer
-		footerMyAccount.click();
-
-		return PageFactory.initElements(driver, Account.class);
-	}
-
-	// METHOD FOR CLICKING ON MY ACCOUNT FROM FOOTER
-	public Account click_MyAccount_Footer() throws Exception {
-
-		// explcicit wait for My Account link in Footer to be visible
-		explicitWait(footerMyAccount, 20, driver);
-
-		// user clicks MY ACCOUNT from FOOTER
-		footerMyAccount.click();
-
-		return PageFactory.initElements(driver, Account.class);
+	
+	// METHOD FOR CLICKING ON SEARCH RESULT FROM DROP DOWN
+	public SearchResultsPage select_DynamicSearchResult() throws Exception {
+		
+		// wait for result to drop
+		explicitWait(resultDrop, 20, driver);
+		
+		// USER CLICKS RESULT DROP BABY & TODDLER MULTI POWDER
+		resultDrop.click();
+		
+		return PageFactory.initElements(driver, SearchResultsPage.class);
+		
 	}
 
 	// METHOD FOR VALID LOG IN FROM HEADER SIGN IN
@@ -147,46 +78,14 @@ public class Homepage extends TestCore {
 		return PageFactory.initElements(driver, MyAccountPage.class);
 	}
 
-	@CacheLookup
-	@FindBy(xpath = Elements.feedBack)
-	WebElement feedBack;
-	@CacheLookup
-	@FindBy(xpath = Elements.faq)
-	WebElement faq;
-	@CacheLookup
-	@FindBy(xpath = Elements.whatsInside)
-	WebElement whatsInside;
-	@CacheLookup
-	@FindBy(xpath = Elements.testimonials)
-	WebElement testimonials;
-	@CacheLookup
-	@FindBy(xpath = Elements.whoWeAre)
-	WebElement whoWeAre;
-	@CacheLookup
-	@FindBy(xpath = Elements.myAccount)
-	WebElement myAccount;
-	@CacheLookup
-	@FindBy(xpath = Elements.input_email)
-	WebElement input_email;
-	@CacheLookup
-	@FindBy(xpath = Elements.input_password)
-	WebElement input_password;
-	@CacheLookup
-	@FindBy(xpath = Elements.signInButton)
-	WebElement signInButton;
-	@CacheLookup
-	@FindBy(xpath = Elements.signOutAccount)
-	WebElement signOutAccount;
-	@CacheLookup
-	@FindBy(xpath = Elements.signOutLink)
-	WebElement signOutLink;
-	@CacheLookup
-	@FindBy(xpath = Elements.footerMyAccount)
-	WebElement footerMyAccount;
-	@CacheLookup
-	@FindBy(xpath = Elements.cleaning)
-	WebElement cleaning;
-	@CacheLookup
-	@FindBy(xpath = Elements.feeding)
-	WebElement feeding;
+	@CacheLookup@FindBy(xpath = Elements.searchBox)WebElement searchBox;
+	@CacheLookup@FindBy(xpath = TestData.searchData)WebElement searchData;
+	@CacheLookup@FindBy(xpath = Elements.resultDrop)WebElement resultDrop;
+	@CacheLookup@FindBy(xpath = Elements.myAccount)WebElement myAccount;
+	@CacheLookup@FindBy(xpath = Elements.input_email)WebElement input_email;
+	@CacheLookup@FindBy(xpath = Elements.input_password)WebElement input_password;
+	@CacheLookup@FindBy(xpath = Elements.signInButton)WebElement signInButton;
+	@CacheLookup@FindBy(xpath = Elements.signOutAccount)WebElement signOutAccount;
+	@CacheLookup@FindBy(xpath = Elements.signOutLink)WebElement signOutLink;
+
 }

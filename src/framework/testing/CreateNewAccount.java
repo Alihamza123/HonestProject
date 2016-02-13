@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 import framework.config.TestCore;
 import framework.pages.Account;
-import framework.pages.Homepage;
+import framework.pages.HomepageFooter;
 import framework.pages.MyAccountPage;
 
 public class CreateNewAccount extends TestCore {
@@ -24,22 +24,19 @@ public class CreateNewAccount extends TestCore {
 	@Test
 	public void userCreatesNewAccount() throws Exception {
 
-		Homepage home = PageFactory.initElements(driver, Homepage.class);
+		HomepageFooter home = PageFactory.initElements(driver, HomepageFooter.class);
 
 		// user clicks on My Account From Footer
 		Account account = home.click_MyAccount_Footer();
 
 		// user enters Valid New Registration Data
-		account.enters_NewUserData();
+		MyAccountPage user = account.user_Inputs_NewUserData();
 
-		// user clicks on Register Button
-		MyAccountPage loggedIn = account.clickNewAccountButton();
-
-		// verify page my account page title
-		loggedIn.verifyPageTitle();
-
-		// user logs out of account
-		loggedIn.signOut();
+		// verify page text 
+		user.verify_MyAccount_Text();
+		
+		// user signs out of account
+		user.signOut();
 
 	}
 

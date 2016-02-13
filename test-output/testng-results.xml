@@ -1,17 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="344" started-at="2016-02-12T06:38:17Z" finished-at="2016-02-12T06:38:18Z">
+  <suite name="Test Suite 01 " duration-ms="103363" started-at="2016-02-13T04:58:02Z" finished-at="2016-02-13T04:59:45Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="344" started-at="2016-02-12T06:38:17Z" finished-at="2016-02-12T06:38:18Z">
-      <class name="framework.testing.Cleaning_Navigation">
-        <test-method status="PASS" signature="cleaning_Navigation()[pri:0, instance:framework.testing.Cleaning_Navigation@d041cf]" name="cleaning_Navigation" duration-ms="289" started-at="2016-02-11T22:38:17Z" description=" Cleaning navigation test" finished-at="2016-02-11T22:38:18Z">
+    <test name=" User Joins Free Trial " duration-ms="60076" started-at="2016-02-13T04:58:02Z" finished-at="2016-02-13T04:59:02Z">
+      <class name="framework.testing.JoinFreeTrial">
+        <test-method status="PASS" signature="start_Up()[pri:0, instance:framework.testing.JoinFreeTrial@721e0f4f]" name="start_Up" is-config="true" duration-ms="23044" started-at="2016-02-12T20:58:02Z" finished-at="2016-02-12T20:58:25Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- cleaning_Navigation -->
-      </class> <!-- framework.testing.Cleaning_Navigation -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+        </test-method> <!-- start_Up -->
+        <test-method status="PASS" signature="accountCreation()[pri:0, instance:framework.testing.JoinFreeTrial@721e0f4f]" name="accountCreation" duration-ms="30265" started-at="2016-02-12T20:58:25Z" description=" Join free trial " finished-at="2016-02-12T20:58:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- accountCreation -->
+        <test-method status="PASS" signature="tear_Down()[pri:0, instance:framework.testing.JoinFreeTrial@721e0f4f]" name="tear_Down" is-config="true" duration-ms="6655" started-at="2016-02-12T20:58:55Z" finished-at="2016-02-12T20:59:02Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tear_Down -->
+      </class> <!-- framework.testing.JoinFreeTrial -->
+    </test> <!--  User Joins Free Trial  -->
+    <test name=" Search Test Case " duration-ms="43142" started-at="2016-02-13T04:59:02Z" finished-at="2016-02-13T04:59:45Z">
+      <class name="framework.testing.Main_Search">
+        <test-method status="PASS" signature="start_Up()[pri:0, instance:framework.testing.Main_Search@71c7db30]" name="start_Up" is-config="true" duration-ms="12520" started-at="2016-02-12T20:59:02Z" finished-at="2016-02-12T20:59:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- start_Up -->
+        <test-method status="PASS" signature="search_Test()[pri:0, instance:framework.testing.Main_Search@71c7db30]" name="search_Test" duration-ms="29604" started-at="2016-02-12T20:59:14Z" finished-at="2016-02-12T20:59:44Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- search_Test -->
+        <test-method status="PASS" signature="tear_Down()[pri:0, instance:framework.testing.Main_Search@71c7db30]" name="tear_Down" is-config="true" duration-ms="1017" started-at="2016-02-12T20:59:44Z" finished-at="2016-02-12T20:59:45Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tear_Down -->
+      </class> <!-- framework.testing.Main_Search -->
+    </test> <!--  Search Test Case  -->
+  </suite> <!-- Test Suite 01  -->
 </testng-results>

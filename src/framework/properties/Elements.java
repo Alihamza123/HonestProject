@@ -20,7 +20,7 @@ public class Elements {
 	public static final String searchBox = ".//*[@id='q']";
 	public static final String searchButton = ".//*[@id='js-navbar-top']/div[1]/div/ul/li[7]/form/div[2]/button";
 	public static final String resultDrop = ".//*[contains(@id,'option-2')]";
-	public static final String expectedImage = ".//*[@id='js-container-main']/div[3]/div[2]/div[1]/div[2]/ng-include/div/div/div[2]/div/div/div/div/div[2]/div[2]/img";
+	public static final String expectedImage = ".//div[@data-disable-touch='true']//img[@class='pdp-carousel-img img-responsive']";
 
 	//  ================= [ HEADER SIGN IN ELEMENTS ] =================
 	
