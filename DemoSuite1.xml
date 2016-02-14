@@ -7,9 +7,9 @@
 		</classes>
 	</test>
 	
-	<test name=" Search Test Case ">
+	<test name=" Register New Account ">
 		<classes>
-			<class name="framework.testing.Main_Search" />
+			<class name="framework.testing.CreateNewAccount" />
 		</classes>
 	</test>
 	

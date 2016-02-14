@@ -49,6 +49,7 @@ public class TestCore {
 	public static void closeBrowser() {
 		
 		driver.quit();
+		System.out.println(" ------------ SHUTTING DOWN BROWSER ------------  ");
 	}
 
 

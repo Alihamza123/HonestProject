@@ -18,7 +18,7 @@ public class GiftsCardPage {
 	}
 	
 	
-	public void user_Enters_InvalidAmount(String invalid_Amount) throws Exception {
+	public void user_Enters_InvalidAmount() throws Exception {
 
 		/*
 		 *  This method waits for Customize amount field to be visible

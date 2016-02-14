@@ -45,7 +45,7 @@ public class HomePage {
 		
 	}
 
-	public void typeInSearchBox() throws Exception {
+	public SearchResultsPage typeInSearchBox() throws Exception {
 		
 		/*
 		 *  This method waits for Search box to be visible
@@ -60,6 +60,8 @@ public class HomePage {
 		searchBox.clear();
 		searchBox.click();
 		searchBox.sendKeys(TestData.searchData);
+		
+		return PageFactory.initElements(driver, SearchResultsPage.class);
 
 	}
 
@@ -143,6 +145,43 @@ public class HomePage {
 
 		return PageFactory.initElements(driver, GiftsPage.class);
 		
+	}
+	
+	public HomePage signOut() throws Exception {
+
+		/*
+		 * This method Waits for Sign out link to be visible
+		 * Hovers over to my account , then clicks on Sign out
+		 * After signing out
+		 * User will be navigated back to homepage
+		 */
+
+		Wait.elementToBeVisible(signOutAccount, 20, driver);
+
+		Actions hover = new Actions(driver);
+
+		hover.moveToElement(signOutAccount).build().perform();
+
+		Wait.elementToBeClickable(signOutLink, 20, driver);
+
+		signOutLink.click();
+
+		return PageFactory.initElements(driver, HomePage.class);
+
+	}
+
+	public CleaningPage navigateToCleaning() throws Exception {
+
+		/*
+		 * This method waits for cleaning on header to be visible 
+		 * Then clicks on cleaning on header
+		 */
+
+		Wait.elementToBeVisible(cleaning, 20, driver);
+
+		cleaning.click();
+
+		return PageFactory.initElements(driver, CleaningPage.class);
 	}
 	
 	// Elements in the homepage that are used in this class

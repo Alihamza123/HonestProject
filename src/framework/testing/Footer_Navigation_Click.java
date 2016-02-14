@@ -1,38 +1,69 @@
 package framework.testing;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import framework.config.TestCore;
 import framework.pages.FooterPage;
+import framework.pages.HomePage;
+import framework.pages.LandingPage;
 
 public class Footer_Navigation_Click extends TestCore {
 
+	@BeforeTest
+	public void startUp() {
+		
+		Logger log = Logger.getLogger("honest");
+		log.info(" STARTING ALL FOOTER NAVIGATION TEST ");
+		
+		startBrowser();
+	}
 
 	@Test(description = "All Footer Navigation ")
 	public void footer_Navigation_Click() throws Exception {
 
 		try {
 			
-			FooterPage foot = PageFactory.initElements(driver, FooterPage.class);
+			LandingPage land = PageFactory.initElements(driver, LandingPage.class);
 			
-			// user clicks FAQ FOOTER
-			foot.click_Footer_faq();
+			HomePage home = land.closeFreeTrial();
 			
-			// user clicks FEEDBACK FOOTER
-			foot.click_footer_feedBack();
+			home.verifyHomePageTitle();
 			
-			// user clicks HONEST TESTIMONIALS FOOTER
-			foot.click_Footer_Testimonials();
+			FooterPage footer = PageFactory.initElements(driver, FooterPage.class);
 			
-			// user clicks WHATS INSIDE FOOTER
-			foot.click_Footer_WhatsInside();
+			footer.navigateToFaq();
 			
-			// user clicks WHO WE ARE FOOTER
-			foot.click_Footer_WhoWeAre();
+			driver.get(webpage);
+			
+			footer.navigateToFeedback();
+			
+			driver.get(webpage);
+			
+			footer.navigateToTestimonials();
+			
+			driver.get(webpage);
+			
+			footer.navigateToWhatsInside();
+			
+			driver.get(webpage);
+			
+			footer.navigateToWhoWeAre();
+			
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 	}
+	
+	@AfterTest(enabled = false)
+	public void shutDown () {
+		
+		log.info(" FINISHING ALL FOOTER NAVIGATION TEST ");
+		closeBrowser();	
+	}
+
 }

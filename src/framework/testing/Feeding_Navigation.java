@@ -1,12 +1,16 @@
 package framework.testing;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import framework.config.TestCore;
-import framework.pages.FeedingPage;
 import framework.pages.Feeding101Page;
+import framework.pages.FeedingPage;
 import framework.pages.HeaderPage;
+import framework.pages.LandingPage;
 
 public class Feeding_Navigation extends TestCore {
 
@@ -21,24 +25,40 @@ public class Feeding_Navigation extends TestCore {
 	 * Verify at the bottom of the page the CONTAINER image is present
 	 */
 
+	@BeforeTest
+	public void startUp() {
+
+		Logger log = Logger.getLogger("honest");
+		log.info(" STARTING FEEDING NAVIGATION TEST ");
+
+		startBrowser();
+	}
+	
 	@Test(description = " FEEDING NAVIGATION TEST ")
 	public void feedingNavigationTest() {
+		
 		try {
 			
-			HeaderPage home = PageFactory.initElements(driver, HeaderPage.class);
+			LandingPage land = PageFactory.initElements(driver, LandingPage.class);
 			
-			// user clicks on Feeding from Header
-			FeedingPage feed = home.click_Header_Feeding();
+			HeaderPage header = land.closeFreeTrialToHeaderPage();
+						
+			FeedingPage feed = header.navigateToFeeding();
 			
-			// user wait for our commitment image to load then clicks it 
-			Feeding101Page commitPage = feed.click_OurCommitment();
+			Feeding101Page commitment = feed.click_OurCommitment();
 			
-			// verify image has loaded on page 
-			commitPage.verify_PageImage();
+			commitment.verifyFeedingImage();		
 			
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
+			log.debug(e.getMessage());
 		}
 	}
 
+	@AfterTest(enabled = false)
+	public void shutDown () {
+		
+		log.info(" FINISHING FEEDING NAVIGATION TEST ");
+		closeBrowser();	
+	}
 }

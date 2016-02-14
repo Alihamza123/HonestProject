@@ -1,53 +1,67 @@
 package framework.testing;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import framework.config.TestCore;
 import framework.pages.CleaningPage;
-import framework.pages.HeaderPage;
+import framework.pages.HomePage;
+import framework.pages.LandingPage;
 
 public class Cleaning_Navigation extends TestCore {
 
 	/*
-	 * USE CASE 09 :
-	 * REFERENCE : TESTCASE09 Cleaning Navigation
-	 * ---------------------------------------------------
-	 * User clicks on Cleaning from Header
-	 * User selects Dish Soap
-	 * User selects from drop down Lemon Verbana
-	 * User increases Quantity to 5
-	 * Verify Image has changed
-	 *  
+	 * USE CASE 09 : REFERENCE : TESTCASE09 Cleaning Navigation
+	 * --------------------------------------------------- User clicks on
+	 * Cleaning from Header User selects Dish Soap User selects from drop down
+	 * Lemon Verbana User increases Quantity to 5 Verify Image has changed
+	 * 
 	 */
-	
+
+	@BeforeTest
+	public void startUp() {
+
+		Logger log = Logger.getLogger("honest");
+		log.info(" STARTING CLEANING NAVIGATION TEST ");
+
+		startBrowser();
+	}
+
 	@Test(description = " Cleaning navigation test")
-	public void cleaning_Navigation() throws Exception {
-	
+	public void canUserCleaningNavigate() throws Exception {
+
 		try {
 			
-			HeaderPage home = PageFactory.initElements(driver, HeaderPage.class);
-	
-			// Click on Cleaning from Header
-			CleaningPage clean = home.click_Header_Cleaning();
+			LandingPage land = PageFactory.initElements(driver, LandingPage.class);
 			
-			// User Selects Dish Soap
-			clean.selectDishSoap();
+			HomePage home = land.closeFreeTrial();
+			log.debug(" Closed Join Free Trial Alert ");
 			
-			// User Selects Lemon Verbana
-			clean.selectLemonVerbena();
+			home.verifyHomePageTitle();
+			log.debug(" Homepage Title VERIFIED ");
 			
-			// User Increases Quantity to 5
-			clean.increaseQuantity();
+			CleaningPage dish = home.navigateToCleaning();
 			
-			// Verify Page Image
-			clean.verifyImage();
-			
-			
+			dish.clickDishSoap();
+			dish.clickScentList();
+			dish.increaseQuantity();
+			dish.verifyImage();
+			log.debug(" Dish Soap Successfully EDITED ");
+		
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
-		}	
+			log.error(e.getMessage());
+		}
+	}
+	
+	@AfterTest(enabled = false)
+	public void shutDown () {
 		
+		log.info(" FINISHING CLEANING NAVIGATION TEST ");
+		closeBrowser();	
 	}
 
 }

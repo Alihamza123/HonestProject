@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
@@ -17,7 +18,7 @@ public class CleaningPage {
 		this.driver = driver;
 	}
 
-	public void clickDishSoap() throws Exception {
+	public CleaningPage clickDishSoap() throws Exception {
 
 		/*
 		 * This method waits for dish soap item to be visible 
@@ -27,10 +28,12 @@ public class CleaningPage {
 		Wait.elementToBeVisible(dishSoap, 20, driver);
 
 		dishSoap.click();
+		
+		return PageFactory.initElements(driver, CleaningPage.class);
 
 	}
 
-	public void clickScentList() throws Exception {
+	public CleaningPage clickScentList() throws Exception {
 
 		/*
 		 * This method waits for scent list drop down to be visible 
@@ -42,27 +45,31 @@ public class CleaningPage {
 		Select scent = new Select(scentList);
 
 		scent.selectByIndex(1);
+		
+		return PageFactory.initElements(driver, CleaningPage.class);
 
 	}
 
-	public void increaseQuantity() throws Exception {
+	public CleaningPage increaseQuantity() throws Exception {
 
 		/*
 		 * This method waits for increase button to be visible 
 		 * Then increases it to 5 by using a while loop
 		 */
 
-		Wait.elementToBeClickable(increase, 20, driver);
+		Wait.elementToBeVisible(increase, 20, driver);
 
-		int a = 1;
-		while (a < 5) {
-			increase.click();
-			a++;
-		}
+		increase.click();
+		increase.click();
+		increase.click();
+		increase.click();
+	
+		
+		return PageFactory.initElements(driver, CleaningPage.class);
 
 	}
 
-	public void verifyImage() throws Exception {
+	public CleaningPage verifyImage() throws Exception {
 
 		/*
 		 * This method waits for Lemon verbana item image to be visible 
@@ -72,6 +79,8 @@ public class CleaningPage {
 		Wait.elementToBeVisible(itemImage, 20, driver);
 
 		Assert.assertEquals(itemImage.isDisplayed(), true);
+		
+		return PageFactory.initElements(driver, CleaningPage.class);
 
 	}
 
@@ -79,10 +88,10 @@ public class CleaningPage {
 	@FindBy(xpath = ".//*[@id='grid_product_25']//*[contains(@src, '10058/Product-25')]")
 	WebElement dishSoap;
 	@CacheLookup
-	@FindBy(xpath = "//select[@class='test-select-variant-selector form-control variant-text-select ng-pristine ng-valid']")
+	@FindBy(xpath = ".//select[@class='test-select-variant-selector form-control variant-text-select ng-pristine ng-valid']")
 	WebElement scentList;
 	@CacheLookup
-	@FindBy(xpath = "//span[@class='icon-large icon icon-plus-sign hover-pointer']")
+	@FindBy(xpath = "//a[@class='incrementer']//span[@class='icon-large icon icon-plus-sign hover-pointer']")
 	WebElement increase;
 	@CacheLookup
 	@FindBy(xpath = "//img[@src='https://img.honest.com/uploads/managed_assets/file/10050/OptionValue-255-slide_with_zoom-e66f6455-aca0-4377-ad13-8e7e70759d21_normal_slide.jpg']")

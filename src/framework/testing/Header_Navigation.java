@@ -1,49 +1,64 @@
 package framework.testing;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import framework.config.TestCore;
 import framework.pages.HeaderPage;
+import framework.pages.LandingPage;
 
 public class Header_Navigation extends TestCore {
 
+	@BeforeTest
+	public void startUp() {
+
+		Logger log = Logger.getLogger("honest");
+		log.info(" STARTING HEADER NAVIGATION TEST ");
+
+		startBrowser();
+	}
 
 	@Test(description = " Header Navigation Test ")
 	public void click_5_HeaderElements() throws Exception{
 		
 		try {
 
-			HeaderPage header = PageFactory.initElements(driver, HeaderPage.class);
+			LandingPage home = PageFactory.initElements(driver, LandingPage.class);
 			
-			// user clicks header bundles
-			header.click_Bundles();
+			HeaderPage header = home.closeFreeTrialToHeaderPage();
 			
-			driver.navigate().back();
+			header.navigateToBundlesHeader();
 			
-			// user clicks header cleaning
-			header.click_Cleaning();
+			driver.get(webpage);
 			
-			driver.navigate().back();
+			header.navigateToCleaningHeader();
+		
+			driver.get(webpage);
 			
-			// user clicks header diapering
-			header.click_Diapering();
+			header.navigateToDiaperingHeader();
 			
-			driver.navigate().back();
+			driver.get(webpage);
 			
-			// user clicks header feeding
-			header.click_Feeding();
+			header.navigateToFeedingHeader();
 			
-			driver.navigate().back();
+			driver.get(webpage);
 			
-			// user clicks header gears
-			header.click_Gears();
-			
-			driver.navigate().back();
+			header.navigateToGearsHeader();
 			
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
+			log.debug(e.getMessage());
 		}
+	}
+	
+	@AfterTest
+	public void shutDown () {
+		
+		log.info(" SHUTTING HEADER NAVIGATION TEST ");
+		closeBrowser();	
 	}
 	
 }

@@ -18,19 +18,7 @@ public class HeaderPage {
 		this.driver = driver;
 	}
 
-	public CleaningPage navigateToCleaning() throws Exception {
 
-		/*
-		 * This method waits for cleaning on header to be visible 
-		 * Then clicks on cleaning on header
-		 */
-
-		Wait.elementToBeVisible(cleaning, 20, driver);
-
-		cleaning.click();
-
-		return PageFactory.initElements(driver, CleaningPage.class);
-	}
 
 	public FeedingPage navigateToFeeding() throws Exception {
 

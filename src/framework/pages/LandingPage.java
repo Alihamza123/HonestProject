@@ -7,16 +7,15 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
-import framework.config.TestCore;
 import framework.properties.TestData;
 import framework.utils.Wait;
 
-public class LandingPage extends TestCore {
+public class LandingPage {
 	
 	WebDriver driver;
 
 	public LandingPage(WebDriver driver) {
-		TestCore.driver = driver;
+		this.driver = driver;
 	}
 
 	public HomePage closeFreeTrial() throws Exception {
@@ -36,6 +35,43 @@ public class LandingPage extends TestCore {
 
 		return PageFactory.initElements(driver, HomePage.class);
 	}
+	
+	public HeaderPage closeFreeTrialToHeaderPage() throws Exception {
+
+		/*
+		 * This method waits for close button to be visible
+		 * Verify the button is enabled
+		 * Then closes the free trial alert by clicking the close button
+		 * System will navigate to honest.com header page elements after closing the trial
+		 */
+
+		Wait.elementToBeClickable(closeTrial, 20, driver);
+
+		Assert.assertTrue(closeTrial.isEnabled());
+
+		closeTrial.click();
+
+		return PageFactory.initElements(driver, HeaderPage.class);
+	}
+	
+	public FooterPage closeFreeTrialToFooterPage() throws Exception {
+
+		/*
+		 * This method waits for close button to be visible
+		 * Verify the button is enabled
+		 * Then closes the free trial alert by clicking the close button
+		 * System will navigate to honest.com footer page elements after closing the trial
+		 */
+
+		Wait.elementToBeClickable(closeTrial, 20, driver);
+
+		Assert.assertTrue(closeTrial.isEnabled());
+
+		closeTrial.click();
+
+		return PageFactory.initElements(driver, FooterPage.class);
+	}
+
 
 	public HomePage joinFreeTrial() throws Exception {
 

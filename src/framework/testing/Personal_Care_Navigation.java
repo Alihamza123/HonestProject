@@ -1,22 +1,50 @@
 package framework.testing;
 
+import org.apache.log4j.Logger;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+
 import framework.config.TestCore;
+import framework.pages.HeaderPage;
+import framework.pages.LandingPage;
+import framework.pages.PersonalcarePage;
 
 public class Personal_Care_Navigation extends TestCore {
 
+	@BeforeTest
+	public void startUp() {
 
-/*
-	@Test(description = " Verify User Clicks Personal Care Navigation Image ")
-	public void user_Clicks_PersonalCareImage() {
-		
+		Logger log = Logger.getLogger("honest");
+		log.info(" STARTING CREATE NEW ACCOUNT FROM LOG IN/REGISTER PAGE TEST ");
+
+		startBrowser();
+	}
+
+	public void canUserNavigateToPersonalCare() throws Exception {
+
 		try {
-			personal = new PersonalCare(driver);
+			LandingPage land = PageFactory.initElements(driver, LandingPage.class);
+
+			HeaderPage header = land.closeFreeTrialToHeaderPage();
+
+			PersonalcarePage personal = header.navigateToPersonalCare();
+
 			personal.click_feminineCareImage();
-			File Screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-			FileUtils.copyFile(Screenshot, new File(
-					"C:\\Users\\Ali Hamza\\Desktop\\screenshot.jpeg"));
+
+			personal.validatePageTitleUrl();
 		} catch (Exception e) {
-			log.debug(" USER CLICKS PERSONAL CARE IMAGE EXCEPTION : " + e);
+			System.out.println(e.getMessage());
+			log.debug(e.getMessage());
 		}
-	}*/
+
+	}
+
+	@AfterTest
+	public void shutDown() {
+
+		log.info(" FINISHING CREATE NEW ACCOUNT FROM LOG IN/REGISTER PAGE TEST ");
+		closeBrowser();
+	}
+
 }

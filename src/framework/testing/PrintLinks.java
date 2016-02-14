@@ -4,17 +4,17 @@ import framework.config.TestCore;
 
 public class PrintLinks extends TestCore {
 
+/*	@BeforeTest
+	public void startUp() {
+		
+		startBrowser();
+		
+	}
 
-
-/*	@Test(description = "USER PRINTS ALL LINKS ON HOMEPAGE")
+	@Test(description = "USER PRINTS ALL LINKS ON HOMEPAGE")
 	public void print_AllTheLinks() {
 
-		try {
-			links = new Links(driver);
-			links.print_AllLinks();
-		} catch (Exception e) {
-			log.debug(e.getMessage());
-		}
+	
 
 	}
 
@@ -28,6 +28,6 @@ public class PrintLinks extends TestCore {
 			log.debug(e.getMessage());
 		}
 
-	}*/
-
+	}
+*/
 }

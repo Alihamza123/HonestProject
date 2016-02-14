@@ -8,7 +8,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import framework.config.TestCore;
-import framework.properties.Elements;
 import framework.utils.Wait;
 
 public class FeedingPage  {
@@ -39,6 +38,6 @@ public class FeedingPage  {
 	}
 
 	@CacheLookup 
-	@FindBy(xpath = Elements.ourCommitment) 
+	@FindBy(xpath = "html/body/div[6]/div[1]/div/div/div[4]/a/img") 
 	WebElement ourCommitment;	
 }

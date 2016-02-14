@@ -1,11 +1,15 @@
 package framework.testing;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import framework.config.TestCore;
+import framework.pages.HomePage;
+import framework.pages.LandingPage;
 import framework.pages.LoginRegisterPage;
-import framework.pages.FooterPage;
 import framework.pages.MyAccountPage;
 
 public class CreateNewAccount extends TestCore {
@@ -16,28 +20,62 @@ public class CreateNewAccount extends TestCore {
 	 * ------------------------------------------ 
 	 * User clicks on My Account from Footer
 	 * User Registers for new Account 
-	 * Verify Page Title
+	 * Verify Logged in account page Title
 	 * User signs out of account
+	 * Verify Homepage Title
 	 * 
 	 */
+	
+	@BeforeTest
+	public void startUp() {
+		
+		Logger log = Logger.getLogger("honest");
+		log.info(" STARTING CREATE NEW ACCOUNT FROM LOG IN/REGISTER PAGE TEST ");
+		
+		startBrowser();
+	}
+
 
 	@Test
-	public void userCreatesNewAccount() throws Exception {
-
-		FooterPage home = PageFactory.initElements(driver, FooterPage.class);
-
-		// user clicks on My Account From Footer
-		LoginRegisterPage account = home.click_MyAccount_Footer();
-
-		// user enters Valid New Registration Data
-		MyAccountPage user = account.user_Inputs_NewUserData();
-
-		// verify page text 
-		user.verify_MyAccount_Text();
+	public void canUserRegisterNewAccount() throws Exception {
 		
-		// user signs out of account
-		user.signOut();
-
+		try {
+			
+			LandingPage land = PageFactory.initElements(driver, LandingPage.class);
+			
+			HomePage home = land.closeFreeTrial();	
+			log.debug(" Closed Join Free Trial Alert ");
+			
+			home.verifyHomePageTitle();		
+			log.debug(" HomePage Title VERIFIED ");		
+			
+			LoginRegisterPage register = home.clickMyAccountFooter();
+			
+			register.validatePageTitle();		
+			log.debug(" Log in / Register Page Title VERIFIED ");
+			
+			MyAccountPage account = register.typeNewUserData();
+			
+			account.validateLoggedInText();
+			log.debug(" User Logged In Text VERIFIED ");
+			
+			account.signOut();
+			
+			home.verifyHomePageTitle();
+			log.debug(" Navigated To HomePage Title VERIFIED ");
+			
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			log.error(e.getMessage());
+		}
+				
+	}
+	
+	@AfterTest
+	public void shutDown () {
+		
+		log.info(" FINISHING CREATE NEW ACCOUNT FROM LOG IN/REGISTER PAGE TEST ");
+		closeBrowser();	
 	}
 
 }

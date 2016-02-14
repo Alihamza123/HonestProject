@@ -32,6 +32,6 @@ public class GiftsPage {
 
 	// Elements that are used in the Gift card page
 	@CacheLookup
-	@FindBy(xpath = "html/body/div[5]/div[1]/div/div/div[4]/a/img")
+	@FindBy(xpath = "//img[@src='//img.honest.com/uploads/managed_assets/file/14485/WidgetMember-41-widget_member/slide_fullscreen/image-7a2f43fd-9503-4f3d-9773-bf7cc890692e.jpg']")
 	WebElement giftCardImage;
 }

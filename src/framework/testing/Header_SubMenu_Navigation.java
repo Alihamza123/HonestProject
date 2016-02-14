@@ -1,38 +1,55 @@
 package framework.testing;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import framework.config.TestCore;
 import framework.pages.HeaderPage;
+import framework.pages.LandingPage;
 
 public class Header_SubMenu_Navigation extends TestCore {
 
-	@Test(description = " User clicks 5 header sub menu elements", dependsOnMethods = { "click_5_HeaderElements" })
-	public void click_5_Header_SubMenuElements() {
+	@BeforeTest
+	public void startUp() {
+
+		Logger log = Logger.getLogger("honest");
+		log.info(" STARTING SUB MENU NAVIGATION TEST ");
+
+		startBrowser();
+	}
+	
+	
+	@Test(description = " Navigate to Sub menus ")
+	public void canUserNavigateToSubMenus() {
 
 		try {
 
-			HeaderPage head = PageFactory.initElements(driver, HeaderPage.class);
-
-			// user clicks Header diapering -- then Swim Diapers
-			head.click_Diapering_SwimDiapers();
-
-			driver.navigate().back();
-
-			// user clicks Header feeding -- then infant formula
-			head.click_Feeding_InfantFormula();
-
-			driver.navigate().back();
-
-			// user clicks Header Personal Care -- then hand sanitizer
-			head.click_PersonalCare_HandSanitizer();
-
-			driver.navigate().back();
+			LandingPage land = PageFactory.initElements(driver, LandingPage.class);
+			
+			HeaderPage header = land.closeFreeTrialToHeaderPage();
+			
+			header.submenuHandSanitizer();
+			
+			driver.get(webpage);
+			
+			header.submenuInfantFormula();
+			
+			driver.get(webpage);
+			
+			header.submenuSwimDiapers();
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-
+	}
+	
+	@AfterTest
+	public void shutDown () {
+		
+		log.info(" SHUTTING SUB MENU NAVIGATION TEST ");
+		closeBrowser();	
 	}
 }
