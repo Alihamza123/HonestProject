@@ -5,7 +5,7 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
 import framework.config.TestCore;
-import framework.pages.Homepage;
+import framework.pages.HomePage;
 import framework.pages.LandingPage;
 
 public class TestSetup_NoTrial extends TestCore {

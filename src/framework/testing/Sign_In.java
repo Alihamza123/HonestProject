@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 
 import framework.config.TestCore;
 import framework.pages.MyAccountPage;
-import framework.pages.Homepage;
+import framework.pages.HomePage;
 import framework.pages.LandingPage;
 
 public class Sign_In extends TestCore {

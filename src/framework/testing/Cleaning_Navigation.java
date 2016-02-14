@@ -4,8 +4,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
 
 import framework.config.TestCore;
-import framework.pages.Cleaning;
-import framework.pages.HomepageHeader;
+import framework.pages.CleaningPage;
+import framework.pages.HeaderPage;
 
 public class Cleaning_Navigation extends TestCore {
 
@@ -26,10 +26,10 @@ public class Cleaning_Navigation extends TestCore {
 	
 		try {
 			
-			HomepageHeader home = PageFactory.initElements(driver, HomepageHeader.class);
+			HeaderPage home = PageFactory.initElements(driver, HeaderPage.class);
 	
 			// Click on Cleaning from Header
-			Cleaning clean = home.click_Header_Cleaning();
+			CleaningPage clean = home.click_Header_Cleaning();
 			
 			// User Selects Dish Soap
 			clean.selectDishSoap();

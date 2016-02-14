@@ -4,7 +4,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
 
 import framework.config.TestCore;
-import framework.pages.HomepageHeader;
+import framework.pages.HeaderPage;
 
 public class Header_SubMenu_Navigation extends TestCore {
 
@@ -13,7 +13,7 @@ public class Header_SubMenu_Navigation extends TestCore {
 
 		try {
 
-			HomepageHeader head = PageFactory.initElements(driver, HomepageHeader.class);
+			HeaderPage head = PageFactory.initElements(driver, HeaderPage.class);
 
 			// user clicks Header diapering -- then Swim Diapers
 			head.click_Diapering_SwimDiapers();

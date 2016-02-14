@@ -6,7 +6,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import framework.config.TestCore;
-import framework.pages.Homepage;
+import framework.pages.HomePage;
 import framework.pages.LandingPage;
 import framework.pages.SearchResultsPage;
 
@@ -39,7 +39,7 @@ public class Main_Search extends TestCore {
 			LandingPage land = PageFactory.initElements(driver, LandingPage.class);
 			
 			// close free trial alert
-			Homepage home = land.close_freeTrialAlert();
+			HomePage home = land.close_freeTrialAlert();
 			log.debug(" Closed Free Trial Alert ");
 			
 			// user searches for "baby"

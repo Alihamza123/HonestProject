@@ -9,47 +9,58 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
-import framework.config.TestCore;
-import framework.properties.Elements;
+import framework.utils.Wait;
 
-public class MyAccountPage extends TestCore {	
+public class MyAccountPage {
 
-	// MAIN CONSTRUCTOR
+	WebDriver driver;
+	
 	public MyAccountPage(WebDriver driver) {
-		TestCore.driver = driver;
-		
+		this.driver = driver;
 	}
 
-	// Verify Page Title For Account Page
-	public void verify_MyAccount_Text() {
-		
+	public void validateLoggedInText() {
+
+		/*
+		 * This method verifies and validates The Text " My Account " on the
+		 * header, when user is on the logged in account page
+		 */
+
 		String expectedText = "My Account";
 		String actualText = driver.findElement(By.xpath("//a[@class='gray']")).getText();
-		Assert.assertEquals(actualText, expectedText);
-			
-	}
-	
-	// METHOD FOR USER TO LOG OUT OF ACCOUNT ( SIGN OUT )
-	public Homepage signOut() throws Exception {
 
-		// explicit wait for sign out link to be visible
-		explicitWait(signOutAccount, 20, driver);
+		Assert.assertEquals(actualText, expectedText);
+
+	}
+
+	public HomePage signOut() throws Exception {
+
+		/*
+		 * This method Waits for Sign out link to be visible
+		 * Hovers over to my account , then clicks on Sign out
+		 * After signing out
+		 * User will be navigated back to homepage
+		 */
+
+		Wait.elementToBeVisible(signOutAccount, 20, driver);
 
 		Actions hover = new Actions(driver);
-		// USER HOVERS TO ACCOUNT ON HEADER AND CLICKS
+
 		hover.moveToElement(signOutAccount).build().perform();
 
-		explicitWait(signOutLink, 20, driver);
-		
-		// USER CLICKS SIGN OUT BUTTON 
+		Wait.elementToBeClickable(signOutLink, 20, driver);
+
 		signOutLink.click();
 
-		return PageFactory.initElements(driver, Homepage.class);
-		
+		return PageFactory.initElements(driver, HomePage.class);
+
 	}
 
-	@CacheLookup @FindBy(xpath = Elements.signOutAccount) WebElement signOutAccount;
-	@CacheLookup @FindBy(xpath = Elements.signOutLink) WebElement signOutLink;
-
+	@CacheLookup
+	@FindBy(xpath = ".//a[contains(@class,'white ng-isolate-scope')]")
+	WebElement signOutAccount;
+	@CacheLookup
+	@FindBy(xpath = "//a[contains(.,'Sign Out')]")
+	WebElement signOutLink;
 
 }

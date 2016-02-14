@@ -6,7 +6,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import framework.config.TestCore;
-import framework.pages.Homepage;
+import framework.pages.HomePage;
 import framework.pages.LandingPage;
 import framework.pages.MyAccountPage;
 
@@ -36,7 +36,7 @@ public class JoinFreeTrial extends TestCore {
 			LandingPage land = PageFactory.initElements(driver, LandingPage.class);
 
 			// USER JOINS FREE TRIAL FROM HOMEPAGE
-			Homepage home = land.user_JoinsFreeTrial();
+			HomePage home = land.user_JoinsFreeTrial();
 			log.debug(" User joined Free Trial - Successfully ");
 
 			TestCore.captureScreenshot(driver, "FreeTrialJoined");

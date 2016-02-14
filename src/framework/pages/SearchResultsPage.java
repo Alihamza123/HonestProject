@@ -6,32 +6,37 @@ import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
-import framework.config.TestCore;
-import framework.properties.Elements;
+import framework.utils.Wait;
 
-public class SearchResultsPage extends TestCore {
+public class SearchResultsPage {
+	
+	WebDriver driver;
 	
 	public SearchResultsPage(WebDriver driver){
-		TestCore.driver=driver;
+		this.driver=driver;
 	}
 
-	// METHOD FOR VERIFYING ( EXPECTED IMAGE / URL / PAGE TITLE WITH ACTUAL )
-	public void verify_UrlAndTitle() throws Exception {
+	public void validateSearchResult() throws Exception {
 		
-		explicitWait(expectedImage, 20, driver);
+		/*
+		 *  This method waits for Expected image to be visible
+		 *  Then verifies and validates image is displayed
+		 *  Then verifies and validates Page Title and Url
+		 */
 		
-		// VERIFY RESULT IMAGE IS VISIBLE
+		Wait.elementToBeVisible(expectedImage, 20, driver);
+		
 		Assert.assertTrue(expectedImage.isDisplayed());
 		
-		// VERIFY ACTUAL / EXPECTED URL 
 		String expectedUrl = "https://www.honest.com/health-and-wellness/baby-toddler-multi-powder";
 		Assert.assertTrue(driver.getCurrentUrl().contains(expectedUrl));
 	
-		// VERIFY ACTUAL / EXPECTED PAGE TITLE
 		String expectedTitle = "Baby Toddler Multi Powder | Natural Products | The Honest Company";
 		Assert.assertTrue(driver.getTitle().contains(expectedTitle));
 		
 	}
 
-	@CacheLookup@FindBy(xpath = Elements.expectedImage)WebElement expectedImage;	
+	@CacheLookup
+	@FindBy(xpath = ".//div[@data-disable-touch='true']//img[@class='pdp-carousel-img img-responsive']")
+	WebElement expectedImage;	
 }

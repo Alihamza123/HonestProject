@@ -4,8 +4,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
 
 import framework.config.TestCore;
-import framework.pages.Gifts;
-import framework.pages.HomepageHeader;
+import framework.pages.GiftsPage;
+import framework.pages.HeaderPage;
 
 public class Gifts_Navigation extends TestCore {
 
@@ -14,9 +14,9 @@ public class Gifts_Navigation extends TestCore {
 
 		try {
 
-			HomepageHeader home = PageFactory.initElements(driver, HomepageHeader.class);
+			HeaderPage home = PageFactory.initElements(driver, HeaderPage.class);
 
-			Gifts gift = home.click_Header_Gifts();
+			GiftsPage gift = home.click_Header_Gifts();
 
 			gift.click_GiftCardImage();
 

@@ -8,10 +8,10 @@ import org.openqa.selenium.WebElement;
 
 import framework.config.TestCore;
 
-public class Links extends TestCore {
+public class LinksPage extends TestCore {
 	
 	// MAIN CONSTRUCTOR
-	public Links(WebDriver driver) {
+	public LinksPage(WebDriver driver) {
 		TestCore.driver = driver;
 	}
 

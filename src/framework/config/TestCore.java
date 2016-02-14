@@ -8,12 +8,9 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import framework.properties.TestData;
 
@@ -54,24 +51,7 @@ public class TestCore {
 		driver.quit();
 	}
 
-	public static WebElement explicitWait(WebElement locator, int timeout, WebDriver driver) throws Exception {
 
-		WebElement element;
-
-		try {
-			driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-
-			WebDriverWait wait = new WebDriverWait(driver, timeout);
-			element = wait.until(ExpectedConditions.visibilityOf(locator));
-
-			driver.manage().timeouts().implicitlyWait(DEFAUL_WAIT_TIME, TimeUnit.SECONDS);
-
-			return element;
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
-		return null;
-	}
 	
 	public static void captureScreenshot(WebDriver driver, String screenshotName) {
 		

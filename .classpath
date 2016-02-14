@@ -13,7 +13,11 @@
 	<classpathentry kind="lib" path="C:/Users/Ali Hamza/Desktop/EclipseWorkspace/Project Honest.com/jars/poi-ooxml-schemas-3.13-20150929.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Ali Hamza/Desktop/EclipseWorkspace/Project Honest.com/jars/saxon-8.7.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Ali Hamza/Desktop/EclipseWorkspace/Project Honest.com/jars/SaxonLiaison.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Ali Hamza/Desktop/EclipseWorkspace/Project Honest.com/jars/selenium-server-standalone-2.51.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Ali Hamza/Desktop/EclipseWorkspace/Project Honest.com/jars/selenium-server-standalone-2.51.0.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="http://docs.oracle.com/javase/6/docs/api/"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/Ali Hamza/Desktop/EclipseWorkspace/Project Honest.com/jars/testng-6.8.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Ali Hamza/Desktop/EclipseWorkspace/Project Honest.com/jars/testng-xslt-maven-plugin-test-0.0.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Ali Hamza/Desktop/EclipseWorkspace/Project Honest.com/jars/xmlbeans-2.6.0.jar"/>

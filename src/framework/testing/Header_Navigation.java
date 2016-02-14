@@ -4,7 +4,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
 
 import framework.config.TestCore;
-import framework.pages.HomepageHeader;
+import framework.pages.HeaderPage;
 
 public class Header_Navigation extends TestCore {
 
@@ -14,7 +14,7 @@ public class Header_Navigation extends TestCore {
 		
 		try {
 
-			HomepageHeader header = PageFactory.initElements(driver, HomepageHeader.class);
+			HeaderPage header = PageFactory.initElements(driver, HeaderPage.class);
 			
 			// user clicks header bundles
 			header.click_Bundles();

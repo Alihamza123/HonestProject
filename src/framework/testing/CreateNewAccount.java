@@ -4,8 +4,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
 
 import framework.config.TestCore;
-import framework.pages.Account;
-import framework.pages.HomepageFooter;
+import framework.pages.LoginRegisterPage;
+import framework.pages.FooterPage;
 import framework.pages.MyAccountPage;
 
 public class CreateNewAccount extends TestCore {
@@ -24,10 +24,10 @@ public class CreateNewAccount extends TestCore {
 	@Test
 	public void userCreatesNewAccount() throws Exception {
 
-		HomepageFooter home = PageFactory.initElements(driver, HomepageFooter.class);
+		FooterPage home = PageFactory.initElements(driver, FooterPage.class);
 
 		// user clicks on My Account From Footer
-		Account account = home.click_MyAccount_Footer();
+		LoginRegisterPage account = home.click_MyAccount_Footer();
 
 		// user enters Valid New Registration Data
 		MyAccountPage user = account.user_Inputs_NewUserData();

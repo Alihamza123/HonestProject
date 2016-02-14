@@ -4,9 +4,9 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
 
 import framework.config.TestCore;
-import framework.pages.Feeding;
-import framework.pages.Feeding101;
-import framework.pages.HomepageHeader;
+import framework.pages.FeedingPage;
+import framework.pages.Feeding101Page;
+import framework.pages.HeaderPage;
 
 public class Feeding_Navigation extends TestCore {
 
@@ -25,13 +25,13 @@ public class Feeding_Navigation extends TestCore {
 	public void feedingNavigationTest() {
 		try {
 			
-			HomepageHeader home = PageFactory.initElements(driver, HomepageHeader.class);
+			HeaderPage home = PageFactory.initElements(driver, HeaderPage.class);
 			
 			// user clicks on Feeding from Header
-			Feeding feed = home.click_Header_Feeding();
+			FeedingPage feed = home.click_Header_Feeding();
 			
 			// user wait for our commitment image to load then clicks it 
-			Feeding101 commitPage = feed.click_OurCommitment();
+			Feeding101Page commitPage = feed.click_OurCommitment();
 			
 			// verify image has loaded on page 
 			commitPage.verify_PageImage();

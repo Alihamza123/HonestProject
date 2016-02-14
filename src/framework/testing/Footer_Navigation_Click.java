@@ -4,7 +4,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
 
 import framework.config.TestCore;
-import framework.pages.HomepageFooter;
+import framework.pages.FooterPage;
 
 public class Footer_Navigation_Click extends TestCore {
 
@@ -14,7 +14,7 @@ public class Footer_Navigation_Click extends TestCore {
 
 		try {
 			
-			HomepageFooter foot = PageFactory.initElements(driver, HomepageFooter.class);
+			FooterPage foot = PageFactory.initElements(driver, FooterPage.class);
 			
 			// user clicks FAQ FOOTER
 			foot.click_Footer_faq();
