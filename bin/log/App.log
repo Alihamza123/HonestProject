@@ -1,0 +1,11 @@
+14/02/2016 13:39:33 honest  STARTING CLEANING NAVIGATION TEST 
+14/02/2016 13:40:07 honest  Closed Join Free Trial Alert 
+14/02/2016 13:40:07 honest  Homepage Title VERIFIED 
+14/02/2016 13:40:38 honest Element is not clickable at point (1128.7666015625, 11.533340454101562). Other element would receive the click: <li class="dropdown cart-navbar-links pad-left-xl pad-right-xl pull-right ng-scope" data-ng-if="!user"></li>
+Command duration or timeout: 350 milliseconds
+Build info: version: '2.51.0', revision: '1af067d', time: '2016-02-05 19:15:17'
+System info: host: 'ALIHAMZA', ip: '192.168.56.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_65'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=42.0, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 04a7d28c-911a-4c80-bf48-f1805f7bcdf8
+14/02/2016 13:40:38 honest  FINISHING CLEANING NAVIGATION TEST 

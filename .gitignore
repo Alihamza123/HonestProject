@@ -1,13 +1,1 @@
-*.jpg
-*.bat
-testng-results.xsl
-build.xml
-/Screenshots/
-/bin
-/test-output
-/testng-xslt
 /jars
-/build
-/logs
-/src/documents
-log4j.properties
